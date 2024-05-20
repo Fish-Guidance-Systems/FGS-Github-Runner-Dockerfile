@@ -12,8 +12,8 @@ ARG RUNNER_VERSION="2.280.3"
 # RUN apt-get update -y && apt-get upgrade -y 
 RUN apt-get update -y
 # add a non-sudo user
-RUN useradd -m docker
-RUN mkdir /home/docker
+#RUN useradd -m docker
+#RUN mkdir /home/docker
 
 # install python and the packages the your code depends on along with jq so we can parse JSON
 # add additional packages as necessary
