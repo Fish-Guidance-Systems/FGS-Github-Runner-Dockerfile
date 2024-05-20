@@ -12,7 +12,7 @@ ARG RUNNER_VERSION="2.280.3"
 # RUN apt-get update -y && apt-get upgrade -y 
 RUN apt-get update -y
 # add a non-sudo user
-# RUN useradd -m docker
+RUN useradd -m docker
 RUN mkdir /home/docker
 
 # install python and the packages the your code depends on along with jq so we can parse JSON
@@ -33,9 +33,9 @@ RUN cd /home/docker && mkdir actions-runner && cd actions-runner \
 #RUN chown -R docker ~docker && /home/docker/actions-runner/bin/installdependencies.sh
 # install some additional dependencies
 RUN /home/docker/actions-runner/bin/installdependencies.sh
-#RUN curl -O -L https://github.com/Fish-Guidance-Systems/FGS-Github-Runner-Dockerfile/blob/main/start.sh
+RUN curl -O -L https://github.com/Fish-Guidance-Systems/FGS-Github-Runner-Dockerfile/blob/main/start.sh
 # copy over the start.sh script
-#COPY start.sh start.sh
+COPY start.sh start.sh
 
 # make the script executable
 RUN chmod +x start.sh
